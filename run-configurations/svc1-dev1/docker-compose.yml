@@ -11,6 +11,8 @@ services:
       - ../../:/mnt/project-home/
       - ./local/:/mnt/local/
       - ./scripts/:/mnt/scripts/
+      #our code
+      - ../../code/is-packages/MyNewsService/:${GUEST_IS_HOME}/packages/MyNewsService/
     environment:
       - SAG_IS_LICENSE_FILE=/tmp/license.xml
       - SAG_IS_CONFIG_PROPERTIES=/tmp/application.properties

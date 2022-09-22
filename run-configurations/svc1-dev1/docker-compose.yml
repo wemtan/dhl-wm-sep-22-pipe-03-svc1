@@ -4,8 +4,10 @@ services:
   msr-lean:
     image: azdevopsdhl5acr.azurecr.io/msr-1011-lean-original-recipe:Fixes_22-09-20
     ports:
-      - 5555:5555
+      - ${HOST_PORT_PREFIX}55:5555
     volumes:
-      - ${MY_MSR_LICENSE_FILE}:/tmp/license.xml
+      - ${HOST_MSR_LICENSE_FILE}:/tmp/license.xml
+      - ./application.properties:/tmp/application.properties
     environment:
       - SAG_IS_LICENSE_FILE=/tmp/license.xml
+      - SAG_IS_CONFIG_PROPERTIES=/tmp/application.properties

@@ -8,6 +8,10 @@ services:
     volumes:
       - ${HOST_MSR_LICENSE_FILE}:/tmp/license.xml
       - ./application.properties:/tmp/application.properties
+      - ../../:/mnt/project-home/
+      - ./local/:/mnt/local/
+      - ./scripts/:/mnt/scripts/
     environment:
       - SAG_IS_LICENSE_FILE=/tmp/license.xml
       - SAG_IS_CONFIG_PROPERTIES=/tmp/application.properties
+    #entrypoint: /mnt/scripts/entrypoint.sh

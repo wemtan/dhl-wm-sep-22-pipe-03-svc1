@@ -15,12 +15,9 @@ fi
 echo "Dumping environment for demo purposes"
 env | sort
 echo "Logging in to repository ${MY_AZ_ACR_URL}"
-buildah login -u "${AZ_ACR_SP_ID}" -p "${AZ_ACR_SP_SECRET}"
-"${MY_AZ_ACR_URL}" || exit 3
+buildah login -u "${AZ_ACR_SP_ID}" -p "${AZ_ACR_SP_SECRET}" "${MY_AZ_ACR_URL}" || exit 3
 echo "Building tag ${OUR_SERVICE_TAG_BASE}"
 buildah bud \
-README.md 9/18/2022
-79 / 82
  --build-arg __base_image=${AZ_BASE_IMAGE_TAG} \
  --format docker \
  -t "${OUR_SERVICE_TAG_BASE}" || exit 4
